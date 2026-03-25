@@ -74,14 +74,14 @@ export const TowerSidebar: React.FC = () => {
 
       <div style={{ color: '#fff', fontSize: '14px', fontWeight: 'bold', borderBottom: '1px solid #334455', paddingBottom: '5px', marginTop: '10px' }}>LOGIC GATES</div>
 
-      <div className="gates-list" style={{ display: 'flex', flexDirection: 'column', gap: '15px', flex: 1 }}>
+      <div className="gates-list" style={{ display: 'flex', flexDirection: 'column', gap: '12px', flex: 1, overflowY: 'auto', minHeight: 0, paddingRight: '5px' }}>
         {gates.map(gate => (
           <div 
             key={gate.id}
             className={`gate-card ${selectedGate === gate.id ? 'selected' : ''}`}
             onClick={() => handleSelect(gate.id as GateType)}
             style={{
-              padding: '12px',
+              padding: '10px 12px',
               borderRadius: '8px',
               border: `1px solid ${selectedGate === gate.id ? gate.color : 'rgba(255,255,255,0.1)'}`,
               background: selectedGate === gate.id ? `linear-gradient(90deg, ${gate.color}22 0%, transparent 100%)` : 'rgba(255,255,255,0.03)',
@@ -92,16 +92,17 @@ export const TowerSidebar: React.FC = () => {
               flex: 1,
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              minHeight: '120px'
             }}
           >
-            <div style={{ position: 'absolute', top: '12px', right: '14px', color: gate.color, fontSize: '16px', fontWeight: 'bold' }}>${gate.cost}</div>
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '15px' }}>
+            <div style={{ position: 'absolute', top: '10px', right: '12px', color: gate.color, fontSize: '16px', fontWeight: 'bold' }}>${gate.cost}</div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
               <GateIcon type={gate.id} color={gate.color} />
             </div>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ color: gate.color, fontSize: '20px', fontWeight: 'bold', textShadow: `0 0 5px ${gate.color}` }}>{gate.name}</div>
-              <div style={{ color: '#8899aa', fontSize: '14px', marginTop: '8px' }}>{gate.desc}</div>
+              <div style={{ color: gate.color, fontSize: '18px', fontWeight: 'bold', textShadow: `0 0 5px ${gate.color}` }}>{gate.name}</div>
+              <div style={{ color: '#8899aa', fontSize: '13px', marginTop: '6px' }}>{gate.desc}</div>
             </div>
           </div>
         ))}
